@@ -8,90 +8,91 @@
 <img width="881" height="424" alt="image" src="https://github.com/user-attachments/assets/a39611d9-8b2d-46c7-ab19-8c239f3abdf0" />
 
 
-Portal Katalog & Manajemen Voucher Privilege eksklusif untuk pelanggan setia **First Media (PT Link Net Tbk)**. Aplikasi ini dirancang dengan antarmuka yang modern, responsif (*mobile-first*), berkinerja tinggi, dan dilengkapi fitur telemetri pelacakan klik pengguna serta visualisasi analitik grafik di sisi admin.
+Exclusive Catalog & Privilege Voucher Management Portal for loyal customers of **First Media (PT Link Net Tbk)**. This application is designed with a modern, responsive (*mobile-first*), high-performance interface, and is equipped with user click tracking telemetry features and graphic analytics visualization on the admin side.
 
-Proyek ini dibangun menggunakan **ASP.NET Core (Razor Pages)** dan **Tailwind CSS v4** dengan database **SQLite** untuk mendukung kemudahan portabilitas demo lokal tanpa konfigurasi database eksternal yang rumit.
-
----
-
-## Fitur Utama
-
-### 1. Katalog Promo Dinamis (`/Promos`)
-*   **Tampilan Klien Modern**: Desain bersih bertema oranye khas brand Linknet yang menyatu, menggunakan kombinasi tipografi atraktif (**Space Grotesk** untuk tajuk & **Plus Jakarta Sans** untuk teks isi).
-*   **Filter Kategori Instan**: Menyaring promo (F&B, Entertainment, Shopping, Transport) secara dinamis menggunakan parameter query terintegrasi.
-*   **Pagination Terintegrasi**: Membagi katalog voucher secara rapi (konfigurasi default: 6 voucher per halaman) untuk mengoptimalkan waktu muat halaman pada perangkat mobile.
-
-### 2. Sensor Kode & Salin Otomatis (`/VoucherDetail`)
-*   **Interactive Reveal Code**: Kode redeem disamarkan secara visual (*blurred*) saat halaman pertama kali dimuat untuk memberikan kesan interaktif.
-*   **Smart Action Button**: Tombol unblur bertransisi secara dinamis menjadi tombol **"Salin Kode"** (*Copy to Clipboard*) dengan umpan balik visual "Tersalin!" berwarna hijau setelah disalin.
-
-### 3. Dashboard Admin & Telemetri Analitik (`/Admin`)
-*   **Click Telemetry**: Setiap klik penyingkapan kode voucher direkam secara asinkron (*background fetch API*) ke dalam database SQLite.
-*   **Statistik Ringkasan (Stat Cards)**: Menampilkan metrik *real-time* mengenai Total Voucher, Total Klik akumulatif, dan nama Mitra Terpopuler (beserta jumlah tayangannya).
-*   **Visualisasi Grafik (Chart.js)**:
-    *   *Bar Chart* (Grafik Batang) menampilkan **Top 5 Voucher Terpopuler** berdasarkan jumlah klik terbanyak.
-    *   *Doughnut Chart* (Grafik Donat) menampilkan **Porsi Distribusi Klik per Kategori Promo**.
-*   **Manajemen CRUD Voucher**: Formulir pembuatan voucher baru yang divalidasi, lengkap dengan tombol **Demo Image Templates** untuk mengisi URL gambar Unsplash secara instan saat pengujian.
+This project was built using **ASP.NET Core (Razor Pages)** and **Tailwind CSS v4** with a **SQLite** database to support easy portability of local demos without complex external database configurations.
 
 ---
 
-## Stack Teknologi
+## Main Features
 
-| Komponen | Teknologi | Keterangan |
+### 1. Dynamic Promo Catalog (`/Promos`)
+* **Modern Client Look**: Clean design with a unified orange theme typical of the Linknet brand, using a combination of attractive typography (**Space Grotesk** for the header & **Plus Jakarta Sans** for the body text).
+* **Instant Category Filter**: Filter promotions (F&B, Entertainment, Shopping, Transport) dynamically using integrated query parameters.
+* **Integrated Pagination**: Neatly divides the voucher catalog (default configuration: 6 vouchers per page) to optimize page load times on mobile devices.
+
+### 2. Code Sensor & Auto Copy (`/VoucherDetail`)
+* **Interactive Reveal Code**: The redeem code is visually disguised (*blurred*) when the page is first loaded to give an interactive impression.
+* **Smart Action Button**: The unblur button dynamically transitions to a **"Copy Code"** (*Copy to Clipboard*) button with visual feedback "Copyed!" green after copying.
+
+### 3. Admin Dashboard & Analytics Telemetry (`/Admin`)
+* **Click Telemetry**: Every voucher code disclosure click is recorded asynchronously (*background fetch API*) into the SQLite database.
+* **Summary Statistics (Stat Cards)**: Displays *real-time* metrics regarding Total Vouchers, Total Accumulative Clicks, and the names of the Most Popular Partners (along with the number of impressions).
+
+* **Chart Visualization (Chart.js)**:
+    * *Bar Chart* (Bar Graph) displays the **Top 5 Most Popular Vouchers** based on the highest number of clicks.
+    * *Doughnut Chart* (Donut Chart) displays **Distribution Share of Clicks per Promo Category**.
+* **CRUD Voucher Management**: New validated voucher creation form, complete with **Demo Image Templates** button to instantly populate Unsplash image URLs while testing.
+
+---
+
+## Technology Stack
+
+| Components | Technology | Description |
 | :--- | :--- | :--- |
-| **Backend Framework** | ASP.NET Core (Razor Pages) | Runtime .NET 8.0 (LTS) - Server-Side Rendered (SSR) |
+| **Backend Framework** | ASP.NET Core (Razor Pages) | .NET 8.0 (LTS) Runtime - Server-Side Rendered (SSR) |
 | **Database** | SQLite | File-based local database (`firstmedia_vouchers.db`) |
-| **ORM / Data Access** | Entity Framework Core 8.0.12 | Pemetaan objek data secara aman & proteksi SQL Injection |
-| **Frontend Styling** | Tailwind CSS v4 | Utility-first CSS dengan kompilasi NPM CLI tercepat |
-| **Typography** | Space Grotesk & Plus Jakarta Sans | Google Fonts kombinasi modern untuk keterbacaan tinggi |
-| **Analitik & Ikon** | Chart.js & Lucide Icons | Visualisasi grafik interaktif & ikon vektor SVG |
+| **ORM / Data Access** | Entity Framework Core 8.0.12 | Secure data object mapping & SQL Injection protection |
+| **Frontend Styling** | Tailwind CSS v4 | Utility-first CSS with fastest NPM CLI compilation |
+| **Typography** | Space Grotesk & Plus Jakarta Sans | Google Fonts modern combination for high readability |
+| **Analytics & Icons** | Chart.js & Lucide Icons | Interactive graphic visualization & SVG vector icons |
 
 ---
 
-## Struktur Proyek Utama
+## Main Project Structure
 
 ```text
 ├── Data/
-│   ├── AppDbContext.cs       # Konfigurasi tabel EF Core
-│   └── DbInitializer.cs      # Seeding otomatis 12 voucher dummy awal
+│   ├── AppDbContext.cs       # EF Core table configuration
+│   └── DbInitializer.cs      # Automatic seeding of 12 initial dummy vouchers
 ├── Models/
-│   └── Voucher.cs            # Model data Voucher & Telemetri
+│   └── Voucher.cs            # Voucher & Telemetry data model
 ├── Pages/
 │   ├── Admin/
-│   │   ├── Create.cshtml     # Form input voucher baru (admin)
-│   │   └── Index.cshtml      # Dashboard visualisasi & tabel CRUD
-│   ├── Promos.cshtml         # Katalog ber-paginasi & kategori filter
-│   ├── VoucherDetail.cshtml  # Detail voucher, unblur code & copy utility
-│   └── Shared/_Layout.cshtml # Master layout bertema oranye & Google Fonts
+│   │   ├── Create.cshtml     # New voucher input form (admin)
+│   │   └── Index.cshtml      # Visualization dashboards & CRUD tables
+│   ├── Promos.cshtml         # Paginated catalog & filter categories
+│   ├── VoucherDetail.cshtml  # Voucher details, unblur code & copy utility
+│   └── Shared/_Layout.cshtml # Orange themed master layout & Google Fonts
 ├── Styles/
-│   └── input.css             # Berkas konfigurasi Tailwind v4 & keyframes
+│   └── input.css             # Tailwind v4 configuration files & keyframes
 ├── wwwroot/
-│   ├── css/site.css          # Hasil kompilasi akhir CSS Tailwind
-│   └── icon.png              # File logo resmi Linknet/First Media
-└── Program.cs                # Entry-point bootstrap aplikasi & seeding
+│   ├── css/site.css          # Tailwind CSS final compilation result
+│   └── icon.png              # Linknet/First Media official logo file
+└── Program.cs                # Application bootstrap entry-point & seeding
 ```
 
 ---
 
-## Cara Menjalankan di Lokal
+## How to Run on Local
 
-### Prasyarat
-1.  **.NET 8.0 SDK** terpasang di komputer Anda.
-2.  **Node.js & NPM** terpasang untuk me-build aset Tailwind CSS.
+### Prerequisites
+1. **.NET 8.0 SDK** installed on your computer.
+2. **Node.js & NPM** installed to build Tailwind CSS assets.
 
-### Langkah 1: Klon & Masuk ke Direktori Proyek
+### Step 1: Clone & Go to Project Directory
 ```bash
-git clone <url-repositori-anda>
+git clone <your-repository-url>
 cd firstmedia-voucher-privilege
 ```
 
-### Langkah 2: Build Aset CSS Tailwind
-Pasang dependensi CLI Tailwind dan lakukan kompilasi:
+### Step 2: Build Tailwind CSS Assets
+Install Tailwind CLI dependencies and compile:
 ```bash
 npm install
 npm run build:css
 ```
-*(Gunakan `npm run watch:css` di terminal terpisah jika ingin memodifikasi tampilan agar CSS terkompilasi secara otomatis saat file diubah).*
+*(Use `npm run watch:css` in a separate terminal if you want to modify the display so that the CSS compiles automatically when the file is changed).*
 
 ### Langkah 3: Jalankan Aplikasi
 Jalankan perintah berikut untuk menjalankan server lokal:
@@ -102,12 +103,15 @@ Setelah server menyala, buka browser Anda di alamat: **`http://localhost:5000`**
 
 ---
 
-## Skenario Pengujian Demo Portofolio
+## Portfolio Demo Testing Scenarios
 
-1.  **Akses Katalog**: Buka halaman utama. Anda langsung melihat katalog berisi 6 voucher awal dengan tema oranye Linknet yang memukau. Klik tombol halaman **2** di bagian bawah untuk melihat sisa voucher.
-2.  **Uji Penyingkapan Kode**: Pilih voucher *Starbucks Coffee*, klik **Tampilkan Kode**. Kode voucher akan ter-unblur secara halus dan tombol berubah menjadi **Salin Kode**. Klik sekali lagi untuk menyalin ke clipboard.
-3.  **Verifikasi Telemetri Admin**: 
-    *   Buka dashboard admin di menu **Dashboard Admin** (`/Admin`).
-    *   Amati kartu statistik **Total Klik** dan kolom **Klik / Reveal** Starbucks Coffee yang bertambah menjadi `1x`.
-    *   Perhatikan **Bar Chart** dan **Doughnut Chart** yang ikut memperbarui datanya secara grafis dan dinamis secara instan!
-4.  **Tambah Voucher Baru**: Klik **Tambah Voucher Baru** di pojok kanan atas, isi formulir, klik template gambar demo **F&B (Kopi)**, lalu klik **Simpan & Publikasikan**. Kembali ke halaman katalog utama untuk memverifikasi voucher tersebut sudah tampil secara otomatis.
+1. **Catalog Access**: Go to the main page. You will immediately see a catalog containing 6 initial vouchers with a stunning Linknet orange theme. Click the **2** page button at the bottom to see the remaining vouchers.
+
+2. **Code Disclosure Test**: Select *Starbucks Coffee* voucher, click **Show Code**. The voucher code will be smoothly blurred and the button will change to **Copy Code**. Click again to copy to clipboard.
+
+3. **Admin Telemetry Verification**: 
+    * Open the admin dashboard in the **Admin Dashboard** menu (`/Admin`).
+    * Observe the **Total Clicks** statistics card and the Starbucks Coffee **Clicks / Reveal** column which increases to `1x`.
+    * Pay attention to the **Bar Chart** and **Doughnut Chart** which also update the data graphically and dynamically instantly!
+
+4. **Add New Voucher**: Click **Add New Voucher** in the top right corner, fill in the form, click the **F&B (Coffee)** demo image template, then click **Save & Publish**. Return to the main catalog page to verify that the voucher has appeared automatically.
