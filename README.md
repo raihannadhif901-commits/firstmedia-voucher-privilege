@@ -5,6 +5,9 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8.svg)](https://tailwindcss.com/)
 [![SQLite](https://img.shields.io/badge/SQLite-3.0-003b57.svg)](https://www.sqlite.org/)
 
+<img width="881" height="424" alt="image" src="https://github.com/user-attachments/assets/a39611d9-8b2d-46c7-ab19-8c239f3abdf0" />
+
+
 Portal Katalog & Manajemen Voucher Privilege eksklusif untuk pelanggan setia **First Media (PT Link Net Tbk)**. Aplikasi ini dirancang dengan antarmuka yang modern, responsif (*mobile-first*), berkinerja tinggi, dan dilengkapi fitur telemetri pelacakan klik pengguna serta visualisasi analitik grafik di sisi admin.
 
 Proyek ini dibangun menggunakan **ASP.NET Core (Razor Pages)** dan **Tailwind CSS v4** dengan database **SQLite** untuk mendukung kemudahan portabilitas demo lokal tanpa konfigurasi database eksternal yang rumit.
