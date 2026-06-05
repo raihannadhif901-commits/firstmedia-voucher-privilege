@@ -82,7 +82,7 @@ This project was built using **ASP.NET Core (Razor Pages)** and **Tailwind CSS v
 
 ### Step 1: Clone & Go to Project Directory
 ```bash
-git clone <your-repository-url>
+git clone <raihannadhif901-commits>
 cd firstmedia-voucher-privilege
 ```
 
