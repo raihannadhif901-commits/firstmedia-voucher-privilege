@@ -94,12 +94,12 @@ npm run build:css
 ```
 *(Use `npm run watch:css` in a separate terminal if you want to modify the display so that the CSS compiles automatically when the file is changed).*
 
-### Langkah 3: Jalankan Aplikasi
-Jalankan perintah berikut untuk menjalankan server lokal:
+### Step 3: Run the Application
+Run the following command to run the local server:
 ```bash
 dotnet watch
 ```
-Setelah server menyala, buka browser Anda di alamat: **`http://localhost:5000`** (atau port lain yang tertera di terminal).
+Once the server is up, open your browser at the address: **`http://localhost:5000`** (or another port listed in the terminal).
 
 ---
 
